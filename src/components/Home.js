@@ -36,7 +36,7 @@ const Container = styled.main`
   padding: 0 calc(3.5vw + 5px);
   position: relative;
   overflow: hidden;
-  margin-bottom: 200px;
+  margin-bottom: 50px;
 
   &:before {
     background: url("images/home-background.png") center center / cover
