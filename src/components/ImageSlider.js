@@ -17,16 +17,16 @@ function ImageSlider() {
   return (
     <Carousel {...settings}>
       <Wrap>
-        <img src="images/slider-badging.jpg" alt="" />
+        <img src="images/slider-badging.jpg" alt="BADGING" />
       </Wrap>
       <Wrap>
-        <img src="images/slider-badag.jpg" alt="" />
+        <img src="images/slider-badag.jpg" alt="BADAG" />
       </Wrap>
       <Wrap>
-        <img src="images/slider-scale.jpg" alt="" />
+        <img src="images/slider-scale.jpg" alt="WANDAVISION" />
       </Wrap>
       <Wrap>
-        <img src="images/slider-scales.jpg" alt="" />
+        <img src="images/slider-scales.jpg" alt="WANDAVISION" />
       </Wrap>
     </Carousel>
   );
@@ -69,7 +69,7 @@ const Wrap = styled.div`
       rgba(0 0 0 / 73%) 0px 16px 10px -10px;
 
     &:hover {
-      border: 4px solid rgba(249, 249, 249, 0.8);
+      border: 2px solid rgba(249, 249, 249, 0.8);
     }
   }
 `;

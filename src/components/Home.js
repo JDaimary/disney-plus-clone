@@ -2,21 +2,49 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 
-import ImageSlider from "./ImageSlider";
-import Movies from "./Movies";
-import Viewers from "./Viewers";
 import db from "../firebase";
 import { setMovies } from "../features/movie/movieSlice";
+
+import ImageSlider from "./ImageSlider";
+import Viewers from "./Viewers";
+import Recommends from "./Recommends";
+import NewDisney from "./NewDisney";
+import Originals from "./Originals";
+import Trending from "./Trending";
 
 function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     db.collection("movies").onSnapshot((snapshot) => {
-      let movies = snapshot.docs.map((doc) => {
-        return { id: doc.id, ...doc.data() };
+      let recommends = [];
+      let newDisneys = [];
+      let originals = [];
+      let trending = [];
+      snapshot.docs.forEach((doc) => {
+        switch (doc.data().type) {
+          case "recommend":
+            recommends = [...recommends, { id: doc.id, ...doc.data() }];
+            break;
+          case "new":
+            newDisneys = [...newDisneys, { id: doc.id, ...doc.data() }];
+            break;
+          case "original":
+            originals = [...originals, { id: doc.id, ...doc.data() }];
+            break;
+          case "trending":
+            trending = [...trending, { id: doc.id, ...doc.data() }];
+            break;
+          default:
+            break
+        }
       });
-      dispatch(setMovies(movies));
+      dispatch(setMovies({
+        recommend: recommends,
+        new: newDisneys,
+        original: originals,
+        trending: trending
+      }));
     });
   }, [dispatch]);
 
@@ -24,7 +52,10 @@ function Home() {
     <Container>
       <ImageSlider />
       <Viewers />
-      <Movies />
+      <Recommends />
+      <NewDisney />
+      <Originals />
+      <Trending />
     </Container>
   );
 }
@@ -36,7 +67,6 @@ const Container = styled.main`
   padding: 0 calc(3.5vw + 5px);
   position: relative;
   overflow: hidden;
-  margin-bottom: 50px;
 
   &:before {
     background: url("images/home-background.png") center center / cover

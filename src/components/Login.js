@@ -5,9 +5,7 @@ export default function Login() {
   return (
     <Container>
       <CTA>
-        <CTALogoOne>
-          <img src="/images/cta-logo-one.svg" alt="" />
-        </CTALogoOne>
+        <CTALogoOne src="/images/cta-logo-one.svg" alt="" />
 
         <SignUp>GET ALL THERE</SignUp>
 
@@ -50,15 +48,15 @@ const Container = styled.div`
 const CTA = styled.div`
   max-width: 1024px;
   padding: 80px 40px;
-  width: 80%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 
-const CTALogoOne = styled.div`
-  width: 80%;
+const CTALogoOne = styled.img`
+  width: 70%;
   img {
     width: 100%;
     height: 100%;
@@ -94,7 +92,7 @@ const Description = styled.p`
 `;
 
 const CTALogoTwo = styled.div`
-  width: 80%;
+  width: 100%;
   img {
     width: 100%;
     height: 100%;

@@ -24,7 +24,7 @@ function Header() {
             email: user.email,
           })
         );
-        history.push("/");
+        history.push("/home");
       }
     });
   }, [dispatch, history]);
@@ -38,14 +38,14 @@ function Header() {
           email: user.email,
         })
       );
-      history.push("/");
+      history.push("/home");
     });
   };
 
   const signOut = () => {
     auth.signOut().then(() => {
       dispatch(setUserSignOut());
-      history.push("/login");
+      history.push("/");
     });
   };
 
@@ -60,32 +60,32 @@ function Header() {
         <>
           <NavMenu>
             <a href="/">
-              <img src="images/home-icon.svg" alt="" />
+              <img src="images/home-icon.svg" alt="HOME" />
               <span>HOME</span>
             </a>
 
             <a href="/">
-              <img src="images/search-icon.svg" alt="" />
+              <img src="images/search-icon.svg" alt="SEARCH" />
               <span>SEARCH</span>
             </a>
 
             <a href="/">
-              <img src="images/watchlist-icon.svg" alt="" />
+              <img src="images/watchlist-icon.svg" alt="WATCHLIST" />
               <span>WATCHLIST</span>
             </a>
 
             <a href="/">
-              <img src="images/original-icon.svg" alt="" />
+              <img src="images/original-icon.svg" alt="ORIGINAL" />
               <span>ORIGINALS</span>
             </a>
 
             <a href="/">
-              <img src="images/movie-icon.svg" alt="" />
+              <img src="images/movie-icon.svg" alt="MOVIE" />
               <span>MOVIES</span>
             </a>
 
             <a href="/">
-              <img src="images/series-icon.svg" alt="" />
+              <img src="images/series-icon.svg" alt="SERIES" />
               <span>SERIES</span>
             </a>
           </NavMenu>
@@ -154,6 +154,10 @@ const NavMenu = styled.nav`
         transform: scaleY(1);
         opacity: 1;
       }
+    }
+
+    @media (max-width: 768px) {
+      display: none;
     }
   }
 `;
