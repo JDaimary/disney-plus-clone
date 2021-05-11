@@ -4,12 +4,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import styled from "styled-components";
 
-import sliderBadging from "../assets/images/slider-badging.jpg";
-import sliderBadag from "../assets/images/slider-badag.jpg";
-import sliderScale from "../assets/images/slider-scale.jpg";
-import sliderScales from "../assets/images/slider-scales.jpg";
-
-
 function ImageSlider() {
   let settings = {
     dots: true,
@@ -23,16 +17,16 @@ function ImageSlider() {
   return (
     <Carousel {...settings}>
       <Wrap>
-        <img src={sliderBadging} alt="" />
+        <img src="images/slider-badging.jpg" alt="" />
       </Wrap>
       <Wrap>
-        <img src={sliderBadag} alt="" />
+        <img src="images/slider-badag.jpg" alt="" />
       </Wrap>
       <Wrap>
-        <img src={sliderScale} alt="" />
+        <img src="images/slider-scale.jpg" alt="" />
       </Wrap>
       <Wrap>
-        <img src={sliderScales} alt="" />
+        <img src="images/slider-scales.jpg" alt="" />
       </Wrap>
     </Carousel>
   );

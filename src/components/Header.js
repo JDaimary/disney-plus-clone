@@ -1,42 +1,39 @@
 import React from "react";
 import styled from "styled-components";
 
-import logo from "../assets/images/logo.svg";
-import homeIcon from "../assets/images/home-icon.svg";
-import searchIcon from "../assets/images/search-icon.svg";
-import watchlistIcon from "../assets/images/watchlist-icon.svg";
-import originalIcon from "../assets/images/original-icon.svg";
-import movieIcon from "../assets/images/movie-icon.svg";
-import seriesIcon from "../assets/images/series-icon.svg";
-
 function Header() {
   return (
     <Nav>
-      <Logo src={logo} />
+      <Logo src="images/logo.svg" />
 
       <NavMenu>
-        <a>
-          <img src={homeIcon} alt="" />
+        <a href="/">
+          <img src="images/home-icon.svg" alt="" />
           <span>HOME</span>
         </a>
-        <a>
-          <img src={searchIcon} alt="" />
+
+        <a href="/">
+          <img src="images/search-icon.svg" alt="" />
           <span>SEARCH</span>
         </a>
-        <a>
-          <img src={watchlistIcon} alt="" />
+
+        <a href="/">
+          <img src="images/watchlist-icon.svg" alt="" />
           <span>WATCHLIST</span>
         </a>
-        <a>
-          <img src={originalIcon} alt="" />
+
+        <a href="/">
+          <img src="images/original-icon.svg" alt="" />
           <span>ORIGINALS</span>
         </a>
-        <a>
-          <img src={movieIcon} alt="" />
+
+        <a href="/">
+          <img src="images/movie-icon.svg" alt="" />
           <span>MOVIES</span>
         </a>
-        <a>
-          <img src={seriesIcon} alt="" />
+
+        <a href="/">
+          <img src="images/series-icon.svg" alt="" />
           <span>SERIES</span>
         </a>
       </NavMenu>
@@ -61,47 +58,49 @@ const Logo = styled.img`
   width: 80px;
 `;
 
-const NavMenu = styled.div`
+const NavMenu = styled.nav`
   display: flex;
   flex: 1;
   align-items: center;
   margin-left: 25px;
 
   a {
-      display: flex;
-      align-items: center;
-      padding: 0 12px;
-      cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
 
-      img {
-          height: 20px;
+    img {
+      height: 20px;
+    }
+
+    span {
+      font-size: 14px;
+      letter-spacing: 1.42px;
+      position: relative;
+
+      &:after {
+        content: "";
+        height: 2px;
+        background: white;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -6px;
+        opacity: 0;
+        transform: scaleX(0);
+        transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
       }
+    }
 
-      span {
-          font-size: 14px;
-          letter-spacing: 1.42px;
-          position: relative;
-
-          &:after {
-              content: "";
-              height: 2px;
-              background: white;
-              position: absolute;
-              left: 0;
-              right: 0;
-              bottom: -6px;
-              opacity: 0;
-              transform: scaleX(0);
-              transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
-          }
+    &:hover {
+      span:after {
+        transform: scaleY(1);
+        opacity: 1;
       }
-
-      &:hover {
-          span:after {
-              transform: scaleY(1);
-              opacity: 1;
-          }
-      }
+    }
   }
 `;
 
